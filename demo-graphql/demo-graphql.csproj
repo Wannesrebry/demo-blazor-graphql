@@ -16,8 +16,4 @@
     <ProjectReference Include="..\shared\shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Types\" />
-  </ItemGroup>
-
 </Project>

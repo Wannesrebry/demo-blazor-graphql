@@ -7,11 +7,14 @@ namespace demo_graphql.Queries
     {
        
         public static readonly DartDbContext _context = new();
+
         
         public List<ApplicationUser> GetApplicationUsers()
         {
             return _context.ApplicationUsers
                 .ToList();
         }
+
+
     }
 }

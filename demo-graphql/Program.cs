@@ -6,6 +6,7 @@ builder.Services
        .AddGraphQLServer()
        .AddQueryType<DartsQueries>();
 
+
 var app = builder.Build();
 
 
