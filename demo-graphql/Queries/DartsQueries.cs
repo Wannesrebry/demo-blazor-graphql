@@ -5,16 +5,11 @@ namespace demo_graphql.Queries
 {
     public class DartsQueries
     {
-       
-        public static readonly DartDbContext _context = new();
 
-        
-        public List<ApplicationUser> GetApplicationUsers()
+        public List<ApplicationUser> GetApplicationUsers([Service] DartDbContext context)
         {
-            return _context.ApplicationUsers
+            return context.ApplicationUsers
                 .ToList();
         }
-
-
     }
 }
