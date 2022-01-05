@@ -1,4 +1,7 @@
 ﻿@page "/counter"
+@using shared;
+@using shared.models
+@inject GraphqlService GraphqlOps;
 
 <PageTitle>Counter</PageTitle>
 
@@ -8,6 +11,25 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+<p>Test-GraphQL</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Player 1</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in users.Data)
+        {
+            <tr>
+                <td>@user.Name , @user.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
 @code {
     private int currentCount = 0;
 
@@ -15,4 +37,20 @@
     {
         currentCount++;
     }
+
+    // Executed immediately component is created
+    protected override async Task OnInitializedAsync()
+    {
+        await FetchUsers();
+    }
+
+    #region FetchUsers
+    private GraphQL.GraphQLResponse<List<ApplicationUser>> users;
+
+    private async Task FetchUsers()
+    {
+        users = await GraphqlOps.FetchApplicationUsers();
+    } 
+    #endregion
+
 }
