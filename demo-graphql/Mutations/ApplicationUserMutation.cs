@@ -35,5 +35,23 @@ namespace demo_graphql.Mutations
                 return null;
             }
         }
+
+        public async Task<StatusResult> DeleteUser(IdInput idInput, [Service] DartDbContext context)
+        {
+            try
+            {
+                ApplicationUser user = context.ApplicationUsers.First(e => e.Id == idInput.Id);
+                string userName = user.Name;
+                context.ApplicationUsers.Remove(user);
+                await context.SaveChangesAsync();
+                return new StatusResult($"User ID {idInput.Id} with name: '{userName}' has been deleted succesfully.");
+            }
+            catch (Exception ex)
+            {
+                // ignore
+                return new StatusResult($"Unable to delete user with ID {idInput.Id}");
+            }
+        }
     }
 }
+ 
