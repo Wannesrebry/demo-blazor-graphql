@@ -12,6 +12,7 @@ namespace shared.models.configurations
     {
         public void Configure(EntityTypeBuilder<ApplicationUser> builder)
         {
+            /*
             builder.HasMany(m => m.MatchesAsPlayer1)
                .WithOne(m => m.Player1)
                .HasForeignKey(m => m.Player1Id)
@@ -23,8 +24,9 @@ namespace shared.models.configurations
               .HasForeignKey(m => m.Player2Id)
               .IsRequired()
               .OnDelete(DeleteBehavior.Restrict);
-
+            
             builder.Ignore(e => e.Matches);
+            */
 
             builder.HasData(
                 new ApplicationUser

@@ -4,8 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
        .AddGraphQLServer()
-       .AddObjectType<DartsQueries>()
-       .AddObjectType<Query>();
+       .AddQueryType<DartsQueries>();
 
 var app = builder.Build();
 

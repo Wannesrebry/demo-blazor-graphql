@@ -14,7 +14,6 @@ namespace shared.models
         #region Properties
         #region Tables
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-        public DbSet<Match> Matches { get; set; }
         #endregion
         #endregion
 
@@ -28,7 +27,6 @@ namespace shared.models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ApplicationsUserConfiguration());
-            modelBuilder.ApplyConfiguration(new MatchConfiguration());
         }
 
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)

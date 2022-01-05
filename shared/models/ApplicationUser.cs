@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace shared.models
 {
-    public  class ApplicationUser : BaseObject
+    public class ApplicationUser : BaseObject
     {
 
         public string Name { get; set; }
         public string Email { get; set; }  
       
+        /*
         public List<Match> Matches
         {
             get
@@ -25,5 +26,6 @@ namespace shared.models
         }
         public List<Match>? MatchesAsPlayer1 { get; set; }
         public List<Match>? MatchesAsPlayer2 { get; set; }
+        */
     }
 }
